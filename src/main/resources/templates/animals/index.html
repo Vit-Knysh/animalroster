@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<nav th:replace="fragments :: navLinks"></nav>
+<p th:unless="${animals.size()}">Oops! No animals</p>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Animal Name</th>
+    </tr>
+    </thead>
+    <tr th:each="animal : ${animals}">
+        <td><a th:href="'/animals/detail?animalId=' + ${animal.id}" th:text="${animal.name}"></a></td>
+    </tr>
+</table>
+</body>
+</html>
